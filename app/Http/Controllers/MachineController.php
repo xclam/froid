@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Fluid;
 use App\Machine;
 use App\Customer;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class MachineController extends Controller
     public function create()
     {
 		$action = 'machine.create';
-		$customers = Customer::pluck('name', 'id');
+		$customers = Customer::all();
         return view( 'machine.machine-mask', compact( 'customers', 'action' ));
     }
 
@@ -59,7 +60,7 @@ class MachineController extends Controller
     public function show(Machine $machine)
     {
 		$action = 'machine.show';
-		$customers = Customer::pluck('name', 'id');
+		$customers = Customer::all();
         return view( 'machine.machine-mask', compact( 'machine','customers','action' ) );
     }
 
@@ -72,7 +73,7 @@ class MachineController extends Controller
     public function edit(Machine $machine)
     {
 		$action = 'machine.edit';
-        $customers = Customer::pluck('name', 'id');
+        $customers = Customer::all();
         return view( 'machine.machine-mask', compact( 'machine', 'customers', 'action' ));
     }
 
@@ -86,8 +87,19 @@ class MachineController extends Controller
     public function update(Request $request, Machine $machine)
     {
 
-		$machine->update($request->all());
-		return redirect('/machine');
+		$machine->update( $request->all() );
+		
+		$fluids = $request->get('fluid');
+		foreach($fluids as $fluid){
+			$machine->fluids()->save(
+				new Fluid([
+					'name' => $fluid['type'],
+					'fluid_load' => $fluid['load']
+				])
+			);
+		}
+		
+		return redirect('/machine/'.$machine->id);
     }
 
     /**

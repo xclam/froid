@@ -50,6 +50,14 @@ $( '.main-mask' ).on( 'change', '.input-field[data-status_change]', function(){
 });
 
 /**
+ * @TODO : a fusionner avec le truc au dessus
+ */
+$( '.main-mask' ).on( 'click', '.input-field[data-onclick]', function(){
+	var func = $( this ).data( 'onclick' );
+	var valide = window[func]( $( this ));
+});
+
+/**
  *
  */
 $( '.main-mask' ).on( 'submit', 'form', function(e){

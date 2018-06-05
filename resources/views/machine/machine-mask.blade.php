@@ -22,6 +22,9 @@
 			<a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">Générale</a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" id="fluid-tab" data-toggle="tab" href="#fluid" role="tab" aria-controls="fluid" aria-selected="false">Fluide</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" id="interv-tab" data-toggle="tab" href="#interv" role="tab" aria-controls="interv" aria-selected="false">Interventions</a>
 		</li>
 		<li class="nav-item">
@@ -38,8 +41,12 @@
 			@include('machine._tab-general')
 	</div>
 	
+	<div class="tab-pane fade" id="fluid" role="tabpanel" aria-labelledby="fluid-tab">
+		@include('machine._tab-fluid')
+	</div>
+	
 	<div class="tab-pane fade" id="interv" role="tabpanel" aria-labelledby="interv-tab">
-		@yield('mask-content-tab-interv')
+		@include('machine._tab-interventions')
 	</div>
 	
 	<div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">

@@ -10,4 +10,14 @@ class Report extends Model
 	function generatePDF(){
 		
 	}
+	
+	public function machine()
+	{
+		return $this->belongsTo('App\Machine');
+	}
+	
+	public function customer()
+	{
+		return $this->belongsTo('App\Customer');
+	}
 }

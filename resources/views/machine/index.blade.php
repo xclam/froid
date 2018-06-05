@@ -22,6 +22,8 @@
 				<th scope="row"><input type="checkbox" name="machine_{{ $machine->id }}" value="{{ $machine->id }}" /></th>
 				<td data-href="/machine/{{ $machine->id }}" class="clickable">{{ $machine->customer_id }}</td>
 				<td data-href="/machine/{{ $machine->id }}" class="clickable">{{ $machine->name }}</td>
+				<td data-href="/machine/{{ $machine->id }}" class="clickable">{{ $machine->brand }}</td>
+				<td data-href="/machine/{{ $machine->id }}" class="clickable">{{ $machine->model }}</td>
 			</tr>
 		@endforeach
 	</tbody>

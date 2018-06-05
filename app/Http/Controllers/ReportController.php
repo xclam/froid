@@ -45,6 +45,7 @@ class ReportController extends Controller
     {
         $report = new Report();
 		
+		
 		$report->customer_id = $request->input('customer_id');
 		$report->machine_id = $request->input('machine_id');
 		$report->intervention_type = $request->input('ndi1').'-'.$request->input('ndi2').'-'.$request->input('ndi3').'-'.$request->input('ndi4').'-'.$request->input('ndi5').'-'.$request->input('ndi6').'-'.$request->input('ndi7').'-'.$request->input('ndi8');
@@ -57,7 +58,9 @@ class ReportController extends Controller
 		$report->to_be_done = $request->input('to_be_done');
 
 		$report->save();
-		
+		$report->number = "FF".date("Ymd").sprintf('%05d', $report->id);
+
+		$report->save();	
 		$report->generatePDF();
 		
 		return redirect('/report');
@@ -71,9 +74,9 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-		$customer = Customer::find($report->customer_id);
-		$machine = Machine::find($report->machine_id);
-        return view( 'report.show', compact( 'report', 'customer', 'machine' ) );
+		// $customer = Customer::find($report->customer_id);
+		// $machine = Machine::find($report->machine_id);
+        return view( 'report.show', compact( 'report' ) );
     }
 
     /**
@@ -115,13 +118,13 @@ class ReportController extends Controller
 		$report = Report::find( $request->query('report') );
 		
         // $items = DB::table("reports")->get();
-		$customer = Customer::find($report->customer_id);
-		$address = $customer->get_address();
-		$machine = Machine::find($report->machine_id);
+		// $customer = Customer::find($report->customer_id);
+		// $address = $customer->get_address();
+		// $machine = Machine::find($report->machine_id);
         view()->share('report',$report);
-		view()->share('customer',$customer);
-		view()->share('address',$address);
-		view()->share('machine',$machine);
+		// view()->share('customer',$customer);
+		// view()->share('address',$address);
+		// view()->share('machine',$machine);
 
 
         if($request->has('download')){

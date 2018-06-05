@@ -27,6 +27,12 @@
 		<li class="nav-item">
 			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contacts" role="tab" aria-controls="contacts" aria-selected="false">Contacts</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="machines-tab" data-toggle="tab" href="#machines" role="tab" aria-controls="machines" aria-selected="false">Machines</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="intervs-tab" data-toggle="tab" href="#intervs" role="tab" aria-controls="intervs" aria-selected="false">Interventions</a>
+		</li>
 	</ul>
 		
 @endsection
@@ -39,11 +45,19 @@
 	</div>
 	
 	<div class="tab-pane fade" id="sites" role="tabpanel" aria-labelledby="sites-tab">
-		@yield('mask-content-tab-sites')
+		@include('customer._tab-sites')	
 	</div>
 	
 	<div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
 		@yield('mask-content-tab-contacts')
+	</div>
+	
+	<div class="tab-pane fade" id="machines" role="tabpanel" aria-labelledby="machines-tab">
+		@include('customer._tab-machines')	
+	</div>
+	
+	<div class="tab-pane fade" id="intervs" role="tabpanel" aria-labelledby="intervs-tab">
+		@include('customer._tab-intervs')	
 	</div>
 			
 @endsection

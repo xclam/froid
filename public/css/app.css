@@ -70,6 +70,10 @@ body{
 	background-color: #27ae60;
 }
 
+.main-mask {
+	padding-top: 15px;
+}
+
 /*Onglets navigation*/
 
 .nav-tabs .nav-link.active {
@@ -111,13 +115,74 @@ span.field {
 	border: 0px;
 }
 
+.btn-warning {
+    color: #fff;
+    background-color: #d95f49;
+    border-color: #d95f49;
+}
+
+.btn-warning:hover {
+    color: #fff;
+    background-color: #b44a37;
+    border-color: #b44a37;
+}
+
+.btn-edit {
+	 color: #fff;
+    background-color: #479ad8;
+    border-color: #479ad8;
+}
+
+.btn-edit:hover {
+	 color: #fff;
+    background-color: #3a81b7;
+    border-color: #3a81b7;
+}
+
+.btn-back {
+	color: #fff;
+    background-color: #bdc3c7;
+    border-color: #bdc3c7;
+}
+
+.btn-back:hover {
+	color: #fff;
+    background-color: #7f8c8d;
+    border-color: #7f8c8d;
+}
+
+.btn-update {
+	color: #fff;
+    background-color: #64c270;
+    border-color: #64c270;
+}
+
+.btn-update:hover {
+	color: #fff;
+    background-color: #479a83;
+    border-color: #479a83;
+}
+
 /*Ecrans listes générales*/
 
 tr:hover {
 	background-color: #fff;
 }
 
-/*Responsive*/
+/*Rapport*/
+
+#content.container-fluid div#report-header.card div.form-group.col-12.col-md-6 {
+	margin-top: 30px;
+	padding-left:0px;
+	padding-right: 0px;
+}
+
+#content.container-fluid div#report-header.card h2 a {
+	color: #6d6d6d;
+	font-weight: normal;
+}
+
+/*Responsive ajustements*/
 
 @media screen and (max-width: 768px) {
 .col-7,

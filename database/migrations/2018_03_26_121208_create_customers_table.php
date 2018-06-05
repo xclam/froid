@@ -30,6 +30,13 @@ class CreateCustomersTable extends Migration
 				->unsigned()
 				->references('id')
 				->on(config('lecturize.addresses.table', 'addresses'));
+				
+			// ForeignKey from Image
+			$table->smallInteger('image_id')
+				->nullable()
+				->unsigned()
+				->references('id')
+				->on(config('lecturize.images_managers.table', 'images_managers'));
 			
 			$table->string('phone',    32)->nullable();
             $table->string('mobile',   32)->nullable();

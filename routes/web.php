@@ -28,6 +28,14 @@ Route::resources([
     'report' => 'ReportController',
 ]);
 
+Route::resources([
+    'user' => 'UserController',
+]);
+
+Route::resources([
+    'role' => 'RoleController',
+]);
+
 // Route::get( '/machine/create', 'MachineController@create' );
 // Route::get( '/machine', 'MachineController@index' );
 // Route::get( '/machine/{machine}', 'MachineController@show' );
@@ -40,3 +48,6 @@ Route::get('pdfview',array('as'=>'pdfview','uses'=>'ReportController@pdfview'));
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/config', 'HomeController@config');
+Route::get('/config/modifycpy', 'HomeController@modifycpy');
+Route::put('/config/update-cpy/{company}', 'HomeController@updatecpy');

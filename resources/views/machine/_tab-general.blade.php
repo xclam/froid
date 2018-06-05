@@ -25,8 +25,21 @@
 			<label for="customer">Customer</label>
 			<select name="customer_id" id="customer" class="form-control input-field">
 				<option value="">Select a customer</option>
-				@foreach( $customers as $key=>$val )
-					<option value="{{$key}}" @if(isset($machine) && $key == $machine->customer_id) selected @endif>{{$val}}</option>
+				@foreach( $customers as $customer )
+					<option value="{{$customer->id}}" @if(isset($machine) && $customer->id == $machine->customer_id) selected @endif>{{$customer->name}}</option>
+				@endforeach
+			</select>
+		</div> 
+		
+		<div class="form-group">
+			<label for="site">Site</label>
+			<select name="site_id" id="site" class="form-control input-field">
+				<option value="">Select a site</option>
+				@foreach( $customers as $customer )
+					@foreach( $customer->sites as $site )
+						<option value="{{$site->id}}" 
+							data-customer="{{$site->customer_id}}">{{$site->name}}</option>
+					@endforeach
 				@endforeach
 			</select>
 		</div> 

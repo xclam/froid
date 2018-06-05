@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Address;
+use App\Site;
+use App\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
+	
+	public function __construct()
+	{
+		$this->authorizeResource(Customer::class);
+	}
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +35,13 @@ class CustomerController extends Controller
      */
     public function create()
     {
-		$action = 'customer.create';
-        // return view( 'customer.create', compact( 'action' ) );
-		return view( 'customer.customer-mask', compact( 'action' ) );
+		// $user = Auth::getUser();
+// dd(auth()->id());
+			$this->authorize('create', Customer::class);
+			$action = 'customer.create';
+			return view( 'customer.customer-mask', compact( 'action' ) );
+
+	
     }
 
     /**
@@ -65,9 +77,10 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
+		// $user = Auth::getUser();
+		$this->authorize('view', $customer );
 		$action = 'customer.show';
-		$address = $customer->get_address();
-		return view( 'customer.customer-mask', compact( 'customer', 'address', 'action' ) );
+		return view( 'customer.customer-mask', compact( 'customer', 'action') );
     }
 
     /**
@@ -79,8 +92,10 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
 		$action = 'customer.edit';
-		$address = $customer->get_address();
-        return view( 'customer.customer-mask', compact( 'customer', 'address', 'action' ));
+		$address = $customer->address;
+		$site = New Site();
+		$sites = $site->where( 'customer_id', $customer->id)->get();
+        return view( 'customer.customer-mask', compact( 'customer', 'address', 'action', 'sites' ));
     }
 
     /**
@@ -92,22 +107,20 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-		// $customer->siret       = $request->get('siret');
-		$add = $customer->get_address();
-		if($add->exists()){
-			$add->street = $request->input('street');
-			// $add->is_active = 1; 		// @TODO : to remove
-			// $add->fill(['street'=>'abc'])->save();
-			$add->update($request->all());
-		} else {
-			$add = new Address();
-			$data = request()->all();
-			$data['is_active'] = 1;
-			$add->create( $data );
-		}
+
+		$address = $request->only(['street', 'street_extra', 'post_code', 'city', 'state']);
+		$customer->set_address($address);
+		
 		$data = request()->all();
-		$data['address_id'] = $add->id;
 		$customer->update($data);
+		
+		//sites
+		//@TODO : enlever les names sur le mask adresse site pour ne pas l'avoir dans le request
+		$sites = array_filter($data, function($key) {
+			return strpos($key, 'site_adr_') === 0;
+		},ARRAY_FILTER_USE_KEY);
+
+		$customer->set_site( $sites );
 		
 		
 		return redirect( '/customer/' . $customer->id );
