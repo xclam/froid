@@ -26,6 +26,7 @@
 		<div class="col">
 			<h2>Technique</h2>
 			<ul>
+				<li><a href="/fluid/">Fluid</a></li>
 				<li>Lang</li>
 				<li>Counter</li>
 			</ul>

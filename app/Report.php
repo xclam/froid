@@ -20,4 +20,9 @@ class Report extends Model
 	{
 		return $this->belongsTo('App\Customer');
 	}
+	
+	public function site()
+	{
+		return $this->belongsTo('App\Site');
+	}
 }

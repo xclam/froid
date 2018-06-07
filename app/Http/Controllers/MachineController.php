@@ -61,7 +61,8 @@ class MachineController extends Controller
     {
 		$action = 'machine.show';
 		$customers = Customer::all();
-        return view( 'machine.machine-mask', compact( 'machine','customers','action' ) );
+		$fluids = Fluid::all();
+        return view( 'machine.machine-mask', compact( 'machine','customers','action', 'fluids'  ) );
     }
 
     /**
@@ -74,7 +75,8 @@ class MachineController extends Controller
     {
 		$action = 'machine.edit';
         $customers = Customer::all();
-        return view( 'machine.machine-mask', compact( 'machine', 'customers', 'action' ));
+		$fluids = Fluid::all();
+        return view( 'machine.machine-mask', compact( 'machine', 'customers', 'action', 'fluids' ));
     }
 
     /**
@@ -86,18 +88,20 @@ class MachineController extends Controller
      */
     public function update(Request $request, Machine $machine)
     {
-
+// dd($request->get('leak_detector') );
 		$machine->update( $request->all() );
 		
-		$fluids = $request->get('fluid');
-		foreach($fluids as $fluid){
-			$machine->fluids()->save(
-				new Fluid([
-					'name' => $fluid['type'],
-					'fluid_load' => $fluid['load']
-				])
-			);
-		}
+		// $fluids = $request->get('fluid');
+		// foreach($fluids as $fluid){
+			// $machine->fluids()->save(
+				// new Fluid([
+					// 'name' => $fluid['type'],
+					// 'fluid_load' => $fluid['load']
+				// ])
+			// );
+		// }
+		// dd($request->get('fluid'));
+		$machine->fluids()->sync( $request->get('fluid') );
 		
 		return redirect('/machine/'.$machine->id);
     }

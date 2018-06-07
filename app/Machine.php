@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Machine extends Model
 {
-    protected $fillable = ['name','serial_number','is_active','brand','model','customer_id','internal_number'];
+    protected $fillable = ['name','serial_number','is_active','brand','model','customer_id','internal_number','site_id','leak_detector'];
 	
 	public function customer()
 	{
 		return $this->belongsTo('App\Customer');
+	}
+	
+	public function site()
+	{
+		return $this->belongsTo('App\Site');
 	}
 	
 	public function interventions()
@@ -20,6 +25,6 @@ class Machine extends Model
 	
 	public function fluids()
 	{
-		return $this->hasMany('App\Fluid');
+	  return $this->belongsToMany(Fluid::class)->withPivot('id','load');
 	}
 }

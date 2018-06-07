@@ -24,9 +24,13 @@ Route::resources([
     'machine' => 'MachineController',
 ]);
 
+Route::get( '/report/step-{step}', 'ReportController@step' );
+Route::post( '/report/step-{step}', 'ReportController@step' );
 Route::resources([
     'report' => 'ReportController',
 ]);
+
+
 
 Route::resources([
     'user' => 'UserController',
@@ -34,6 +38,10 @@ Route::resources([
 
 Route::resources([
     'role' => 'RoleController',
+]);
+
+Route::resources([
+    'fluid' => 'FluidController',
 ]);
 
 // Route::get( '/machine/create', 'MachineController@create' );
@@ -51,3 +59,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/config', 'HomeController@config');
 Route::get('/config/modifycpy', 'HomeController@modifycpy');
 Route::put('/config/update-cpy/{company}', 'HomeController@updatecpy');
+
+Route::get('/report/pdf/get-fields', 'ReportController@pdffields');

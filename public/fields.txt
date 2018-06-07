@@ -1,0 +1,428 @@
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[0]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[1]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[2]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[3]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[4]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[5]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[6]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[7]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[8]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[0]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[1]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[2]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[3]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[4]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[5]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[6]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Case_&#224;_cocher1[7]
+FieldNameAlt: Case_&#224;_cocher1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[9]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[10]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[11]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[12]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[13]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 4
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[0]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[1]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[2]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[3]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[4]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[5]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[14]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[15]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[16]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[6]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[7]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[8]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[17]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[18]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[19]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[20]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[21]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[22]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[23]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Right
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[24]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Groupe_de_boutons_radio[9]
+FieldFlags: 49152
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[25]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[26]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[27]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[28]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[29]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[30]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[31]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[32]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[33]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[34]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[35]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[36]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[37]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[38]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[39]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[40]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[41]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte1[42]
+FieldNameAlt: Champ_de_texte1
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: topmostSubform[0].Page1[0].Champ_image1[0]
+FieldNameAlt: Champ_image1
+FieldFlags: 65536
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: topmostSubform[0].Page1[0].Champ_de_texte2[0]
+FieldNameAlt: Champ_de_texte2
+FieldFlags: 1
+FieldValue: N&#176; 15497*02
+FieldValueDefault: N&#176; 15497*02
+FieldJustification: Left
+---
+FieldType: 
+FieldName: topmostSubform[0]
+FieldFlags: 0
+FieldJustification: Left

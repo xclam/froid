@@ -14,6 +14,7 @@
 	<a href="{{ url('report/validate/'.$report->id) }}">Valider</a>
 	<a href="{{ url('report/edit/'.$report->id) }}">Modifier</a>
 	<a href="{{ url('report/delete/'.$report->id) }}">Delete</a>
+	<a href="{{ url('report/pdf/get-fields') }}">Get PDF Fields</a>
 </div>
 
 @include('report.cerfa15497._header')
