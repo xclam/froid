@@ -30,7 +30,8 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-		$user->authorizeRoles("Admin");
+		// dd($user->roles);
+		return $user->authorizeRoles("Admin");
 		// return true;
     }
 
@@ -43,7 +44,7 @@ class CustomerPolicy
      */
     public function update(User $user, Customer $customer)
     {
-		$user->authorizeRoles("Admin");
+		return $user->authorizeRoles("Admin");
         // return true;
     }
 
@@ -56,7 +57,7 @@ class CustomerPolicy
      */
     public function delete(User $user, Customer $customer)
     {
-		$user->authorizeRoles("Admin");
+		return $user->authorizeRoles("Admin");
 		// dd($user);
         // return true;
     }

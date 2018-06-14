@@ -9,7 +9,8 @@
 	@else
 		<div class="form-group">
 			<label for="customer">Customer</label>
-			<select name="customer_id" id="customer" class="form-control input-field">
+			<select name="customer_id" id="customer" class="form-control input-field"
+				data-control_change="init_site_machine">
 				<option value="">Select a customer</option>
 				@foreach( $customers as $key=>$val )
 					<option value="{{$key}}">{{$val}}</option>
@@ -23,7 +24,8 @@
 	@else
 		<div class="form-group">
 			<label for="site">Site</label>
-			<select name="site_id" id="site" class="form-control input-field">
+			<select name="site_id" id="site" class="form-control input-field"
+				data-control_change="init_machine">
 				<option value="">Select a site</option>
 				@foreach( $sites as $site )
 					<option value="{{$site->id}}" 

@@ -30,13 +30,7 @@
 	</li>
   
 	<li class="nav-item active">
-		<a class="nav-link dropdown-toggle" href="#" id="interventionnavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Rapports
-		</a>
-		<div class="dropdown-menu" aria-labelledby="interventionnavbarDropdown">
-			<a class="dropdown-item" href="/report">View all</a>
-			<a class="dropdown-item" href="/report/create">Create</a>
-		</div>
+		<a class="nav-link" href="/report" role="button">Rapports</a>
 	</li>
 	
 </ul>

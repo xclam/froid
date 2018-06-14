@@ -10,12 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// \URL::forceScheme('https'); 
 
-Route::get('/', function () 
-{
-    return view('index');
-});
+Route::get('/', 'HomeController@index');
 
+Route::get('/site/machine/list', 'SiteController@list_machine');
+
+Route::get('/customer/site/list', 'CustomerController@list_site');
+Route::get('/customer/machine/list', 'CustomerController@list_machine');
 Route::resources([
     'customer' => 'CustomerController',
 ]);
@@ -25,7 +27,12 @@ Route::resources([
 ]);
 
 Route::get( '/report/step-{step}', 'ReportController@step' );
+Route::get( '/report/step-{step}/{report}', 'ReportController@step' );
 Route::post( '/report/step-{step}', 'ReportController@step' );
+Route::get( '/report/validate/{report}', 'ReportController@validate_report' );
+Route::get( '/report/cri', 'ReportController@cri_view' );
+Route::get( '/report/photo', 'ReportController@photo' );
+Route::post( '/report/camera/add', 'ReportController@camera_add' );
 Route::resources([
     'report' => 'ReportController',
 ]);

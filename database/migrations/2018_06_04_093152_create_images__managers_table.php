@@ -8,7 +8,7 @@ class CreateImagesManagersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * @TODO: change for medias table
      * @return void
      */
     public function up()

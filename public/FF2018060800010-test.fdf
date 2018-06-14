@@ -12,7 +12,7 @@ test
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[5])/V(R-32)>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[6])/V(200)>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[7])/V(135)>>
-<</T(topmostSubform[0].Page1[0].Champ_de_texte1[8])/V(efcsfsdfsdfsdfsdfds)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[8])/V()>>
 <</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V(1)>>
 <</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V(1)>>
 <</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V(1)>>
@@ -32,6 +32,20 @@ test
 <</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[3])/V(0)>>
 <</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[4])/V(2)>>
 <</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[5])/V(1)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[14])/V(test1)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[15])/V(test2)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[16])/V(test3)>>
+<</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[6])/V(1)>>
+<</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[7])/V(1)>>
+<</T(topmostSubform[0].Page1[0].Groupe_de_boutons_radio[8])/V(2)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[17])/V(600)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[18])/V(100)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[19])/V(200)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[20])/V(300)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[21])/V(900)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[22])/V(400)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[23])/V(500)>>
+<</T(topmostSubform[0].Page1[0].Champ_de_texte1[24])/V(qdqdqzd)>>
 ] >> >>
 endobj
 trailer

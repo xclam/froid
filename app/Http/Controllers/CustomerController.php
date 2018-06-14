@@ -15,6 +15,7 @@ class CustomerController extends Controller
 	
 	public function __construct()
 	{
+		$this->middleware('auth');
 		$this->authorizeResource(Customer::class);
 	}
     /**
@@ -134,4 +135,18 @@ class CustomerController extends Controller
 		return redirect('/machine');
     }
     
+	
+	/*******/
+	
+	public function list_site(Request $request)
+	{
+		$customer = Customer::find($request->get('id'));
+		return $customer->sites;
+	}
+	
+	public function list_machine(Request $request)
+	{
+		$customer = Customer::find($request->get('id'));
+		return $customer->machines;
+	}
 }

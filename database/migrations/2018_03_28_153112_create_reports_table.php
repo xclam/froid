@@ -10,6 +10,7 @@ class CreateReportsTable extends Migration
      * Run the migrations.
      *
      * @return void
+	 * @TODO : remove supplies
      */
     public function up()
     {

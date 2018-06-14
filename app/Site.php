@@ -37,4 +37,9 @@ class Site extends Model
 
 		$this->address_id = $address->id;
 	}
+	
+	public function machines() 
+	{
+		return $this->hasMany('App\Machine');
+	}
 }

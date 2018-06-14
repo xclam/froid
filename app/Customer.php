@@ -66,7 +66,7 @@ class Customer extends Model
 			// 
 	}
 	
-	public function machines()
+	public function machines() 
 	{
 		return $this->hasMany('App\Machine');
 	}

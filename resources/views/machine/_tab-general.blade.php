@@ -37,7 +37,7 @@
 				<option value="">Select a site</option>
 				@foreach( $customers as $customer )
 					@foreach( $customer->sites as $site )
-						<option value="{{$site->id}}" @if($site->id == $machine->site_id) selected @endif
+						<option value="{{$site->id}}" @if(isset($machine) && $site->id == $machine->site_id) selected @endif
 							data-customer="{{$site->customer_id}}">{{$site->name}}</option>
 					@endforeach
 				@endforeach

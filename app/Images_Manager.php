@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @TODO : change for Media 
+ */
 class Images_Manager extends Model
 {
 	protected $table = "images_managers";
@@ -17,5 +20,10 @@ class Images_Manager extends Model
 		$this->image_path = public_path('images').'/'.$this->image_name.'.'.$this->image_extension;
 		$this->save();
 		return $this->id;
+	}
+	
+	public function reports()
+	{
+	  return $this->belongsToMany(Report::class);
 	}
 }

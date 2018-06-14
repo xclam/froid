@@ -1,3 +1,12 @@
 .card{
 	padding:32px;
 }
+
+.page.garde h2 {
+	padding-right: 30mm;
+}
+
+textarea{
+	width:100%;
+	height:100px;
+}

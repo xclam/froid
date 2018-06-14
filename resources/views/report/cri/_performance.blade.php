@@ -1,14 +1,9 @@
 <div class="form-group">
-	<label for="performance">Prestation</label>
-	<textarea id="performance" name="performance"></textarea>
+	<h3><label for="performance">PRESTATION</label></h3>
+	<textarea id="performance" name="performance">{{$report->performance or ''}}</textarea>
 </div> 	
 
 <div class="form-group">
-	<label for="supplies">Fournitures</label>
-	<textarea id="supplies" name="supplies"></textarea>
-</div> 	
-
-<div class="form-group">
-	<label for="to_be_done">Reste à faire</label>
-	<textarea id="to_be_done" name="to_be_done"></textarea>
+	<h3><label for="to_be_done">RESTE À FAIRE</label></h3>
+	<textarea id="to_be_done" name="to_be_done">{{$report->to_be_done or ''}}</textarea>
 </div> 	

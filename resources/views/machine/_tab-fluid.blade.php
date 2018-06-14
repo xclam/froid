@@ -1,5 +1,5 @@
 <input type="hidden" name="leak_detector" value="0" />
-<input type="checkbox" name="leak_detector" class="input-field" id="leak_detector" value="1" @if($machine->leak_detector) checked @endif/>
+<input type="checkbox" name="leak_detector" class="input-field" id="leak_detector" value="1" @if(isset($machine) && $machine->leak_detector) checked @endif/>
 <label for="leak_detector">Leak detector</label>
 
 <div class="input-field" data-onclick="addFluid">Ajouter un fluide</div>

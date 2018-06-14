@@ -61,5 +61,11 @@
 			@if( !empty( $val ) and  $val[7] == 1 ) checked @endif
 		/>
 		<label for="ndi8" class="custom-control-label">Autre (préciser)</label>
+		<input class="input-field" type="text" value="" name="other"/>
+	</div>
+	
+	<div class="custom-control ">
+		<label for="technician_observations" >Observations</label>
+		<input class="input-field" type="text" value="{{$report->other or ''}}" name="technician_observations" id="technician_observations"/>
 	</div>
 	
