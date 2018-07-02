@@ -1,5 +1,5 @@
 <?php
 
-{
-    "Search": "Rechercher"
-}
+return [
+    'Search' => 'Rechercher'
+];

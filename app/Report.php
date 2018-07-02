@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    
+    protected $guarded = [];
 	
 	public function machine()
 	{
@@ -54,9 +54,9 @@ class Report extends Model
 		$cpy = Company::first();
 		
 		$txt[0] = "";
-		$txt[1] = $cpy->name."\n".str_replace("\n", " ", $cpy->address)."\nSIRET : ".$cpy->siret;
+		$txt[1] = $cpy->name."\n".str_replace("<br/>", " ", $cpy->address)."\nSIRET : ".$cpy->siret;
 		$txt[2] = $cpy->certificate;
-		$txt[3] = $this->customer->name."\n".str_replace("\n", " ", $this->customer->address)."\n SIRET : ".$this->customer->siret;
+		$txt[3] = $this->customer->name."\n".str_replace("<br/>", " ", $this->customer->address)."\n SIRET : ".$this->customer->siret;
 		$txt[4] = $this->machine->brand.' '.$this->machine->model;
 		$txt[5] = $this->machine->fluids[0]->name;
 		$txt[6] = $this->machine->fluids[0]->pivot->load;
@@ -70,10 +70,10 @@ class Report extends Model
 		$chk[0] = "1";
 		$chk[1] = '1';
 		$chk[2] = 1;
-		$chk[3] = 'Off';
-		$chk[4] = "Off";
-		$chk[5] = "x";
-		$chk[6] = "v";
+		$chk[3] = 1;
+		$chk[4] = 1;
+		$chk[5] = 1;
+		$chk[6] = 1;
 		$chk[7] = 1;
 		
 		$rdo[0] = ($this->machine->leak_detector)? 1:2;
@@ -133,13 +133,13 @@ class Report extends Model
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[7])/V('.$txt[7].')>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[8])/V('.$txt[8].')>>
 <</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[0] .')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[1].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[2].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[3].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[4].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[5].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[6].')>>
-<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[0])/V('.$chk[7].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[1])/V('.$chk[1].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[2])/V('.$chk[2].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[3])/V('.$chk[3].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[4])/V('.$chk[4].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[5])/V('.$chk[5].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[6])/V('.$chk[6].')>>
+<</T(topmostSubform[0].Page1[0].Case_&#224;_cocher1[7])/V('.$chk[7].')>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[9])/V('.$txt[9].')>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[10])/V('.$txt[10].')>>
 <</T(topmostSubform[0].Page1[0].Champ_de_texte1[11])/V('.$txt[11].')>>
@@ -173,7 +173,7 @@ trailer
  
 	file_put_contents( $this->number.'-test.fdf', $fdf );
 
-	exec("pdftk cerfa_15497-02.pdf fill_form ".$this->number."-test.fdf output ".$this->number.".pdf flatten");
+	exec("pdftk cerfa_15497-02.pdf fill_form ".$this->number."-test.fdf output ".$this->number.".pdf flatten ");
 	
 	}
 	

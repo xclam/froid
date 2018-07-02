@@ -10,10 +10,10 @@
 			@else
 				logo
 			@endif
-			<p>@if( isset($company) ){{$company->name}}@endif</p>
-			<p>@if( isset($company) ){{$company->certificate}}@endif</p>
-			<p>@if( isset($company) ){{$company->siret}}@endif</p>
-			<p>@if( isset($company) ){{$company->address}}@endif</p>
+			<p>@if( isset($company) )<h3>{{$company->name}}</h3>@endif</p>
+			<p>Attestation de capacité :@if( isset($company) ){{$company->certificate}}@endif</p>
+			<p>Siret : @if( isset($company) ){{$company->siret}}@endif</p>
+			<p>Adresse : @if( isset($company) ){!! $company->address !!}@endif</p>
 			<a href="/config/modifycpy">Modify</a>
         </div>
 		<div class="col">

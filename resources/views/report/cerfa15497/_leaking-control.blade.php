@@ -16,7 +16,7 @@
 <div class="form-check">
 	<label for="sdf1">Présence d'un systeme de detection des fuites</label>
 	<input type="hidden" value="0" name="sdf" >
-	<input type="checkbox" value="1" name="sdf" id="sdf1" @if($report->machine->leak_detector) checked @endif/>
+	<input type="checkbox" value="1" name="sdf" id="sdf1" />
 </div>
 
 <h3>Fuite constatée</h3>

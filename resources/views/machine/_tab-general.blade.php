@@ -2,6 +2,7 @@
 	
 	<div class="col-6">
 	
+		
 		<div class="form-group">
 			<label for="brand">Brand</label>
 			<input type="text" id="siret" class="form-control input-field" name="brand" value="@if(isset($machine->brand)){{$machine->brand}}@endif"/>
@@ -22,8 +23,9 @@
 	<div class="col-6">
 
 		<div class="form-group">
-			<label for="customer">Customer</label>
-			<select name="customer_id" id="customer" class="form-control input-field">
+			<label for="customer">{{__('Customer')}}</label>
+			<select name="customer_id" id="customer" class="form-control input-field"
+				data-control_change="init_site" required>
 				<option value="">Select a customer</option>
 				@foreach( $customers as $customer )
 					<option value="{{$customer->id}}" @if(isset($machine) && $customer->id == $machine->customer_id) selected @endif>{{$customer->name}}</option>
@@ -31,19 +33,22 @@
 			</select>
 		</div> 
 		
+		
 		<div class="form-group">
 			<label for="site">Site</label>
-			<select name="site_id" id="site" class="form-control input-field">
-				<option value="">Select a site</option>
-				@foreach( $customers as $customer )
-					@foreach( $customer->sites as $site )
-						<option value="{{$site->id}}" @if(isset($machine) && $site->id == $machine->site_id) selected @endif
-							data-customer="{{$site->customer_id}}">{{$site->name}}</option>
-					@endforeach
-				@endforeach
-			</select>
+			@if( $action == "machine.show" )
+				<input type="text" value="{{$machine->site->name}}" class="form-control input-field"/>
+			@else
+				<select name="site_id" id="site" class="form-control input-field" required>
+					<option value="">Select a site</option>
+					@isset($sites)
+						@foreach( $sites as $site )
+							<option value="{{$site->id}}" @if(isset($machine) && $site->id == $machine->site_id) selected @endif>{{$site->name}}</option>
+						@endforeach
+					@endisset
+				</select>
+			@endif
 		</div> 
-		
 		
 
 	</div>

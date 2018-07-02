@@ -14,12 +14,41 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/test', 'HomeController@test');
+
 Route::get('/site/machine/list', 'SiteController@list_machine');
+
+Route::get('/site/ajaxcreate/{id}', [
+	'as' => 'site.ajaxcreate',
+	'uses' => 'SiteController@ajaxcreate' 
+]);
+
+Route::get('/site/ajaxremove/{id}', [
+	'as' => 'site.ajaxcreate',
+	'uses' => 'SiteController@ajaxremove' 
+]);
+
+Route::get('/site/{id}', 'SiteController@get_site');
+
+
+
 
 Route::get('/customer/site/list', 'CustomerController@list_site');
 Route::get('/customer/machine/list', 'CustomerController@list_machine');
 Route::resources([
     'customer' => 'CustomerController',
+]);
+
+Route::resources([
+    'site' => 'SiteController',
+]);
+Route::put( '/site/ajaxupdate/{site}', [
+	'as' => 'site.ajaxupdate',
+	'uses' => 'SiteController@ajaxupdate' 
+]);
+Route::post( '/site/ajaxstore', [
+	'as' => 'site.ajaxstore',
+	'uses' => 'SiteController@ajaxstore' 
 ]);
 
 Route::resources([

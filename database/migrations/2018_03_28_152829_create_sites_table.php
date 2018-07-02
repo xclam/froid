@@ -13,25 +13,25 @@ class CreateSitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sites', function (Blueprint $table) {
-            $table->increments('id');
-			
-			// ForeignKey from Customer
-			$table->smallInteger('customer_id')
-				->nullable()
-				->unsigned()
-				->references('id')
-				->on(config('lecturize.customers.table', 'customers'));
-				
-			// ForeignKey from Address
-			$table->smallInteger('address_id')
-				->nullable()
-				->unsigned()
-				->references('id')
-				->on(config('lecturize.addresses.table', 'addresses'));
-				
-			
-			
+      Schema::create('sites', function (Blueprint $table) {
+        $table->increments('id');
+
+  			// ForeignKey from Customer
+  			$table->smallInteger('customer_id')
+  				->nullable()
+  				->unsigned()
+  				->references('id')
+  				->on(config('lecturize.customers.table', 'customers'));
+
+  			// ForeignKey from Address
+  			$table->smallInteger('address_id')
+  				->nullable()
+  				->unsigned()
+  				->references('id')
+  				->on(config('lecturize.addresses.table', 'addresses'));
+
+
+
             $table->timestamps();
         });
     }

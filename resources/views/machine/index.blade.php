@@ -1,5 +1,61 @@
 @extends('layouts.layout')
 
+@section('title')
+Machine
+@endsection
+
+@section('breadcrumb')
+<li>Machine</li>
+@endsection
+
+@section('search')
+<form class="form-inline my-2 my-lg-0" style="width:50%;">
+	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="s">
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+@endsection
+
+@section('control-nav')
+<a href="machine/create" class="btn btn-outline-success my-2 my-sm-0">Create</a>
+@endsection
+
+@section('content')
+
+{{Html::modelTable(
+	$machines, 
+	array(
+		array(
+			'object' => 'customer',
+			'slug' => 'name',
+			'label' => 'Customer'
+		),
+		array(
+			'object' => 'site',
+			'slug' => 'name',
+			'label' => 'site'
+		),
+		array(
+			'slug' => 'name',
+			'label' => 'Name'
+		),
+		array(
+			'slug' => 'brand',
+			'label' => 'Brand'
+		),
+		array(
+			'slug' => 'model',
+			'label' => 'Model'
+		)
+	)
+)}}
+
+@endsection
+
+
+
+
+
+
 
 @section('content')
 @if( sizeof($machines) == 0 ) 

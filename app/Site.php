@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Site extends Model
 {
-    //
+    protected $fillable = ['customer_id', 'address_id', 'name', 'siret'];
 	
 	public function stringify()
 	{
@@ -25,21 +25,10 @@ class Site extends Model
 		return $this->belongsTo('App\Address');
 	}
 	
-	public function set_address( $adr )
-	{
-		$address = Address::findOrNew( $this->id );
-		
-		foreach( $adr as $k=>$v ){
-			$address->$k = $v;
-		}
-		$address->is_active = true;
-		$address->save();
-
-		$this->address_id = $address->id;
-	}
-	
 	public function machines() 
 	{
 		return $this->hasMany('App\Machine');
 	}
+	
+	
 }

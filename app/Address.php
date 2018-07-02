@@ -19,6 +19,12 @@ class Address extends Model
 	
 	public function __toString()
 	{
-		return $this->street."\n".$this->street_extra."\n".$this->post_code.' '.$this->city."\n".$this->state;
+		return $this->street."<br/>".$this->street_extra."<br/>".$this->post_code.' '.$this->city."<br/>".$this->state;
 	}
+	
+	public function site()
+	{
+		return $this->hasOne('App\Site');
+	}
+	
 }

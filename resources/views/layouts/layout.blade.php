@@ -14,7 +14,7 @@
 		<link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
 		@stack('css')
 		
-        <title>@yield('title')</title>
+        <title>Froid - @yield('title')</title>
 		
 		<!-- Fonts -->
 		<link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -26,7 +26,12 @@
 		@include('layouts.header')
 	
 		<div id="content" class="container-fluid">
-			<div id="cta">@yield('cta')</div>
+			<div id="control_panel">
+				<ol class="breadcrumb">@yield('breadcrumb')</ol>
+				@yield('search')
+				@yield('control-nav')
+				@yield('cta')
+			</div>
 			@yield('content')
 		</div>
 	

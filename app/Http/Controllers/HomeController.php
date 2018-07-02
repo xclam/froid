@@ -68,4 +68,9 @@ class HomeController extends Controller
 		return redirect('/config');
 		// dd($request);
 	}
+	
+	public function test()
+	{
+		return view( 'test' );
+	}
 }

@@ -1,36 +1,7 @@
-<ul class="navbar-nav mr-auto">
-	<li class="nav-item active">
-		<a class="nav-link" href="http://213.32.17.136:8000">Home <span class="sr-only">(current)</span></a>
-	</li>
-  
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Customers
-		</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="/customer">View all</a>
-			<a class="dropdown-item" href="/customer/create">Create</a>
-		</div>
-	</li>
-	
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Machines
-		</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="/machine">View all</a>
-			<a class="dropdown-item" href="/machine/create">Create</a>
-		</div>
-	</li>
-	
-	<li class="nav-item">
-		<a class="nav-link" href="/config" id="config" role="button" >
-			Configuration
-		</a>
-	</li>
-  
-	<li class="nav-item active">
-		<a class="nav-link" href="/report" role="button">Rapports</a>
-	</li>
-	
-</ul>
+<div class="navbar-nav ">
+		<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link" href="/customer">Customers</a>
+		<a class="nav-item nav-link" href="/machine">Machines</a>
+		<a class="nav-item nav-link" href="/config" id="config" role="button" >Configuration</a>
+		<a class="nav-item nav-link" href="/report" role="button">Rapports</a>
+</div>

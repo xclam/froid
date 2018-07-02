@@ -15,7 +15,7 @@
 		@if( $report->is_validate )<a href="{{ url('report/cri/?rid='.$report->id.'&download=pdf') }}">Download CRI</a>@endif
 		@if( !$report->is_validate )
 			@if( !$report->is_open )<a href="{{ url('report/validate/'.$report->id) }}">Valider</a>@endif
-			<a href="{{ url('report/edit/'.$report->id) }}">Modifier</a>
+			<a href="{{ url('report/'.$report->id.'/edit') }}">Modifier</a>
 			<a href="{{ url('report/delete/'.$report->id) }}">Delete</a>
 		@endif
 		<!--<a href="{{ url('report/pdf/get-fields') }}">Get PDF Fields</a>-->

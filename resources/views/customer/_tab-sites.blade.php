@@ -1,61 +1,22 @@
-<div class="row">
-	
-	<div class="col-4">
-		<div id="sites-table">	
-			@if(isset($customer))
-				@foreach( $customer->sites as $l=>$site )
-					<input type="text" id="{{$site->id}}'" name="site_adr_{{$l}}" data-line="{{$l}}" 
-						class="form-control input-field adr-name" 
-						data-status_change="update_site" 
-						data-onclick="load_site"
-						value="{{$site->name}}" />
-					<input type="hidden" data-line="{{$l}}" id="site_adr" name="site_adr_{{$l}}" 
-						value="{{$site->stringify()}}" />
-				@endforeach
-			@endif
-		</div>
-		<div class="input-field" data-onclick="add_customer_site">+ add</div>
-	</div>
-	
-	<div class="col-8 address-site">
-		<input type="hidden" id="adr_line" value="" />
-		<div class="form-group">
-			<label for="siret">Siret</label>
-			<input type="text" id="site_siret" class="form-control input-field" name="site_siret" 
+<span class="btn input-field" data-onclick="add_customer_site" data-id="@if(isset($customer)) {{$customer->id}} @else 0 @endif">{{__('Add')}}</span>
 
-				data-status_change="update_site" />
-		</div> 
-		
-		<div class="form-group">
-			<label for="street">Street</label>
-			<input type="text" id="site_street" class="form-control input-field" name="site_street" 
-				data-status_change="update_site" />
-		</div> 
-		
-		<div class="form-group">
-			<label for="street_extra">Street</label>
-			<input type="text" id="site_street_extra" class="form-control input-field" name="site_street_extra"
-				data-status_change="update_site" />
-		</div> 
-		
-		<div class="form-group">
-			<label for="post_code">Post code</label>
-			<input type="text" id="site_post_code" class="form-control input-field" name="site_post_code" 
-				data-status_change="update_site" />
-		</div> 
-		
-		<div class="form-group">
-			<label for="city">City</label>
-			<input type="text" id="site_city" class="form-control input-field" name="site_city" 
-				data-status_change="update_site" />
-		</div> 
-		
-		<div class="form-group">
-			<label for="state">State</label>
-			<input type="text" id="site_state" class="form-control input-field" name="site_state" 
-				data-status_change="update_site" />
-		</div> 
-		
-	</div>
-	
+@isset($customer)
+<div class="row" id="customer-sites">
+	@foreach( $customer->sites as $site )
+		<div class="col-4 row-eq-height mt-3">
+			<div class="card input-field customer-site-card field-card" data-onclick="edit_customer_site" data-id="{{$site->id}}" >
+				<div class="card-header">
+					<h5 class="card-title">{{$site->name}}</h5>
+					<button type="button" class="close input-field" data-onclick="delete_site" data-id="{{$site->id}}" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="card-body ">
+					<div>SIRET : {{$site->siret}}</div>
+					<div>{!! $site->address !!}</div>
+				</div>
+			</div>
+		</div>
+	@endforeach
 </div>
+@endisset

@@ -1,14 +1,39 @@
 @extends('layouts.mask')
 
-@section('form')
-	@if( $action == "customer.create" )
+
+
+@if( $action == "customer.create" )
+	@section('title')
+		{{__("Customer create")}}
+	@endsection
+	@section('breadcrumb')
+		<li>{{__("Customer")}}</li> / <li>{{__("Create")}}</li>
+	@endsection
+	@section('form')
 		{{ Form::open(array('url' => 'customer', 'id' => 'customer-create-form', 'class' => 'create-form')) }}
-	@elseif( $action == "customer.show" )
+	@endsection
+@elseif( $action == "customer.show" )
+	@section('title')
+		{{__("Customer")}} {{$customer->id}}
+	@endsection
+	@section('breadcrumb')
+		<li>{{__("Customer")}}</li> / <li>{{$customer->id}}</li>
+	@endsection
+	@section('form')
 		{{ Form::model($customer, array('route' => array('customer.destroy', $customer->id), 'method' => 'DELETE', 'id' => 'customer-show-form', 'class' => 'show-form')) }}
-	@elseif( $action == "customer.edit" )
+	@endsection
+@elseif( $action == "customer.edit" )
+	@section('title')
+		{{__("Customer")}} {{$customer->id}} {{__("Edit")}}
+	@endsection
+	@section('breadcrumb')
+		<li>{{__("Customer")}}</li> / <li>{{$customer->id}}</li> / <li>{{__("Edit")}}</li>
+	@endsection
+	@section('form')
 		{{ Form::model($customer, array('route' => array('customer.update', $customer->id), 'method' => 'PUT', 'id' => 'customer-edit-form', 'class' => 'edit-form')) }}
-	@endif
-@endsection
+	@endsection
+@endif
+
 
 @section('mask-header')
 	@include('customer._form-header')	

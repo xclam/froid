@@ -1,0 +1,19 @@
+{
+	"Customer": "Client",
+	"Customers": "Clients",
+	"Name": "Nom",
+	"Society": "Société",
+	"Street": "Adresse",
+	"Post code": "Code postal",
+	"City": "Ville",
+	"State": "Pays",
+	"Website": "Site internet",
+	"Create": "Créer",
+	"Update": "Modifier",
+	"Modify": "Modifier",
+	"Delete": "Supprimer",
+	"Back": "Annuler",
+	
+	
+	"Add": "Ajouter"
+}

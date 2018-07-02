@@ -1,14 +1,15 @@
 <div class="img-profile"></div>
 
 <h1 class="card-title">
-	<label for="name">Name</label>
+	<label for="name">{{__("Name")}}</label>
 	<input type="text" name="name" id="name" value="@if( isset($customer) ) {{$customer->name}} @endif" class="input-field"
 	required/>
 </h1>
 
-<input type="checkbox" name="is_active" id="is_active" value="1" @if( isset($customer) && $customer->is_active ) checked @endif class="input-field"/>
-	<label for="is_active">Active</label>
+{{Form::label('is_active',__('Active'))}}
+{{Form::switchbox( 'is_active', 1, (isset($customer) && $customer->is_active), ['class'=>'input-field'])}}
+
+{{Form::label('is_society',__('Society'))}}
+{{Form::switchbox( 'is_society', 1, (isset($customer) && $customer->is_society), ['class'=>'input-field'])}}
+
 	
-<input type="checkbox" name="is_society" id="is_society" value="1" @if( isset($customer) && $customer->is_society ) checked @endif class="input-field"
-	data-status_change="is_society_change"/>
-	<label for="is_society">Society</label>

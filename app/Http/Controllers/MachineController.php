@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Site;
 use App\Fluid;
 use App\Machine;
 use App\Customer;
@@ -16,8 +17,8 @@ class MachineController extends Controller
      */
     public function index()
     {
-        $machines = Machine::all();
-		return view( 'machine.index', compact( 'machines' ) );
+      $machines = Machine::all();
+      return view( 'machine.index', compact( 'machines' ) );
     }
 
     /**
@@ -27,9 +28,10 @@ class MachineController extends Controller
      */
     public function create()
     {
-		$action = 'machine.create';
-		$customers = Customer::all();
-        return view( 'machine.machine-mask', compact( 'customers', 'action' ));
+      $action = 'machine.create';
+      $customers = Customer::all();
+      $fluids = Fluid::all();
+      return view( 'machine.machine-mask', compact( 'customers', 'action', 'fluids' ));
     }
 
     /**
@@ -40,15 +42,10 @@ class MachineController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate( request(), [
-			'name' => 'required',
-			'serial' => 'required'
-		]);
-		// dd($request);
-		// dd( request()->all() );
-		Machine::create( request()->all() );
-		
-		return redirect('/machine');
+      $machine = Machine::create( request()->all() );
+      $this->add_fluid( $machine, $request->get('fluid') );
+
+      return redirect('/machine');
     }
 
     /**
@@ -59,10 +56,10 @@ class MachineController extends Controller
      */
     public function show(Machine $machine)
     {
-		$action = 'machine.show';
-		$customers = Customer::all();
-		$fluids = Fluid::all();
-        return view( 'machine.machine-mask', compact( 'machine','customers','action', 'fluids'  ) );
+  		$action = 'machine.show';
+  		$customers = Customer::all();
+  		$fluids = Fluid::all();
+      return view( 'machine.machine-mask', compact( 'machine','customers','action', 'fluids'  ) );
     }
 
     /**
@@ -73,10 +70,11 @@ class MachineController extends Controller
      */
     public function edit(Machine $machine)
     {
-		$action = 'machine.edit';
-        $customers = Customer::all();
-		$fluids = Fluid::all();
-        return view( 'machine.machine-mask', compact( 'machine', 'customers', 'action', 'fluids' ));
+	    $action = 'machine.edit';
+      $customers = Customer::all();
+  		$fluids = Fluid::all();
+  		$sites = Site::where('customer_id', $machine->customer_id)->get();
+      return view( 'machine.machine-mask', compact( 'machine', 'customers', 'action', 'fluids', 'sites' ));
     }
 
     /**
@@ -88,22 +86,10 @@ class MachineController extends Controller
      */
     public function update(Request $request, Machine $machine)
     {
-// dd($request->get('leak_detector') );
-		$machine->update( $request->all() );
-		
-		// $fluids = $request->get('fluid');
-		// foreach($fluids as $fluid){
-			// $machine->fluids()->save(
-				// new Fluid([
-					// 'name' => $fluid['type'],
-					// 'fluid_load' => $fluid['load']
-				// ])
-			// );
-		// }
-		// dd($request->get('fluid'));
-		$machine->fluids()->sync( $request->get('fluid') );
-		
-		return redirect('/machine/'.$machine->id);
+		  $machine->update( $request->all() );
+      $this->add_fluid( $machine, $request->get('fluid') );
+
+	    return redirect('/machine/'.$machine->id);
     }
 
     /**
@@ -114,8 +100,24 @@ class MachineController extends Controller
      */
     public function destroy(Machine $machine)
     {
-		// dd($machine);
-        $machine->delete();
-		return redirect('/machine');
+  	   try{
+         $machine->fluids()->detach();
+         $machine->delete();
+       }catch(\Illuminate\Database\QueryException $e) {
+         if($e->getCode() == "23000"){ //23000 is sql code for integrity constraint violation
+           return 23000;
+         }
+       }
+       return redirect('/machine');
+    }
+
+    public function add_fluid(Machine $machine, $fluids){
+      if( null !== $fluids and is_array( $fluids ) ){
+  	    $f = array();
+    		foreach( $fluids as $fluid ){
+    			$f[$fluid['fluid_id']] = [ 'load' => $fluid['load'] ];
+    		}
+  		  $machine->fluids()->sync( $f );
+      }
     }
 }

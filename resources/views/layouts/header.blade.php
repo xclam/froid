@@ -1,5 +1,7 @@
-<div id="header">
+<div id="header" >
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
 		<a class="navbar-brand" href="#">
 			<img src="http://lefroidfrancilien.fr/wp-content/uploads/sites/9/2017/11/LFF-1.jpg" height="50"></img>
 		</a>
@@ -7,11 +9,11 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="primary-navbar">
 			@auth
 				@include('layouts.menu')
 			@endauth
-			
+
 			<ul class="navbar-nav ml-auto">
 			@guest
 				<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -36,9 +38,10 @@
 			@endguest
 			</ul>
 
-			
-			
-			
+
+
+
 		</div>
 	</nav>
+
 </div>

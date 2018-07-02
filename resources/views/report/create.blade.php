@@ -12,32 +12,40 @@
 	{{ Form::open(array('url' => 'report/'.$next)) }}
 
 		@if($step != 1)<input type="hidden" name="id" value="{{$report->id}}" />@endif
-		
+
 		@if($step == 1)
 			@include('report.cri._header')
 		@endif
-		
+
 		@if($step == 2)
 			@include('report.cerfa15497._intervention-type')
-		@endif	
-		
+		@endif
+
 		@if($step == 3)
 			@include('report.cerfa15497._leaking-control')
 		@endif
-		
+
 		@if($step == 4)
 			@include('report.cerfa15497._handling')
 		@endif
-		
-		@if($step == 5)
-			@include('report.cri._survey')		
 
-			@include('report.cri._times')	
-		
+		@if($step == 5)
+			@include('report.cri._survey')
+
+			@include('report.cri._times')
+
 			@include('report.cri._performance')
-		@endif			
-			
-		{{ Form::submit('Create', array('class' => 'btn btn-primary')) }}
+		@endif
+
+		@if($step > 1)
+			<a href="/report/step-{{$step-1}}/{{$report->id}}" class="btn btn-secondary">{{__('back')}}</a>
+		@endif
+
+		@if($step == 5)
+			{{ Form::submit(__('Finish'), array('class' => 'btn btn-primary')) }}
+		@else
+			{{ Form::submit(__('Next'), array('class' => 'btn btn-primary')) }}
+		@endif
 	{{ Form::close() }}
 </div>
 @endsection

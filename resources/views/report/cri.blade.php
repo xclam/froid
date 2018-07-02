@@ -1,25 +1,34 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <style>
+@font-face {
+  font-family: 'Arial';
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  src: url('../public/fonts/Arial.ttf') format('truetype');
+}
+
+@page{
+size: 210mm 297mm;
+margin: 0.5cm;
+font-family:Arial;
+	font-size:11px;
+}
+
 body{
-	font-family:arial;
+	font-family:Arial;
 	font-size:11px;
 	margin:0px;
 }
-@page{
-size: 210mm 297mm;
-margin: 0cm;
-font-family:arial;
-	font-size:11px;
-}
+
 .page{
-	page-break-after: always;
-	margin: 0cm;
+	margin: 0.5cm;
 }
-.inner-page{
-	margin:20mm 17mm;
+.page-break {
+    page-break-after: always;
 }
 .center{
 	text-align:center;
@@ -36,7 +45,7 @@ table{
 	padding: 1mm 10mm 1mm 10mm;
 }
 td{
-	padding:2mm;
+	padding:1mm;
 }
 .blue{
 	background-color:#ced7db;
@@ -77,10 +86,12 @@ h3{
 .page.garde h2 {
 	padding-right: 30mm;
 }
-
+.bbd{
+	border-bottom:2px double #f1f1f1;
+}
 </style>
 
-<div class="page garde">
+<div class="page garde page-break">
 
 	<div class="header">
 		<div class="header-box">
@@ -93,7 +104,7 @@ h3{
 </div>
 
 
-<div class="page">
+<div class="page page-break">
 
 	<table class="cartouche" cellspacing="0" border="0" width="100%">
 		<tr>
@@ -108,7 +119,7 @@ h3{
 			<td>N&deg; : {{$report->number}}</td>
 		</tr>
 		<tr>
-			<td rowspan=2 valign=top>{{$cpy->name}}<br>{{$cpy->address}}</td>
+			<td rowspan=2 valign=top>{{$cpy->name}}<br><?php echo str_replace("<br/>", " ", $cpy->address); ?></td>
 		</tr>
 		<tr>
 			<td align="center" class="font-small">Attestation de capacité : {{$cpy->certificate}}</td>
@@ -116,6 +127,13 @@ h3{
 		</tr>
 	</table>
 		
+<?php
+	$val = array();
+	if( isset( $report->intervention_type ) ){
+		$val = explode( '-', $report->intervention_type );
+	}
+?>
+
 	<table cellspacing="0" border="0" width="100%">
 		<tr>
 			<td><b>Nature de l'intervention</b></td>
@@ -123,36 +141,36 @@ h3{
 			<td rowspan=2><h3>{{$report->customer->name}}</h3></td>
 		</tr>
 		<tr>
-			<td>Assemblage</td>
+			<td class="bbd">@if( !empty( $val ) and  $val[0] == 1 ) &#10004; @endif Assemblage</td>
 		</tr>
 		<tr>
-			<td>Mise en service</td>
+			<td class="bbd">@if( !empty( $val ) and  $val[1] == 1 ) &#10004; @endif Mise en service</td>
 			<td align="right">SIRET</td>
 			<td>{{$report->customer->siret}}</td>
 		</tr>
 		<tr>
-			<td>Modification</td>
+			<td class="bbd">@if( !empty( $val ) and  $val[2] == 1 ) &#10004; @endif Modification</td>
 			<td align="right">Site :</td>
 			<td>{{$report->site->name}}</td>
 		</tr>
 		<tr>
-			<td>Maintenance </td>
+			<td class="bbd">@if( !empty( $val ) and  $val[3] == 1 ) &#10004; @endif Maintenance </td>
 			<td align="right">Adresse :</td>
-			<td>{{$report->site->address}}</td>
+			<td><?php echo str_replace("<br/>", "\n", $report->site->address); ?></td>
 		</tr>
 		<tr>
-			<td>Controle d'étanchéité</font></td>
+			<td class="bbd">@if( !empty( $val ) and  $val[4] == 1 ) &#10004; @endif Controle d'étanchéité</td>
 			<td ><br></td>
 		</tr>
 		<tr>
-			<td>Démantèlement</td>
+			<td class="bbd">@if( !empty( $val ) and  $val[5] == 1 ) &#10004; @endif Démantèlement</td>
 			<td align="right">Horaires : </td>
 			<td >{{$report->atam}} - {{$report->dtam}} / {{$report->atpm}} - {{$report->dtpm}}</td>
 		</tr>
 	</table>
 
 	<h2 class="h2">ENVIRONNEMENT SANTÉ SECURITÉ</h2>	
-	<table cellspacing="0" border="0">
+	<table cellspacing="0" border="0" class="table">
 		<tr>
 			<td align="center" >QUESTIONS</td>
 			<td align="center">OUI</td>
@@ -162,74 +180,85 @@ h3{
 			<td align="center">NON</td>
 		</tr>
 		<tr>
-			<td valign=middle><font color="#000000">1- Le port des EPIs (&eacute;quipements de protection individuels) est il respect&eacute; ?</font></td>
-			<td align="center" valign=middle>@if($report->yn_epi) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_epi) <i class="fas fa-check"></i> @endif</td>
-			<td valign=middle><font color="#000000">6- Le travail en hauteur comporte t'il des risques ?</font></td>
-			<td align="center" valign=middle>@if($report->yn_work_height) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_work_height) <i class="fas fa-check"></i> @endif</td>
+			<td valign=middle>1- Le port des EPIs (&eacute;quipements de protection individuels) est-il respect&eacute; ?</td>
+			<td align="center" valign=middle>@if($report->yn_epi) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_epi) &#10004; @endif</td>
+			<td valign=middle>6- Le travail en hauteur comporte t'il des risques ?</td>
+			<td align="center" valign=middle>@if($report->yn_work_height) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_work_height) &#10004; @endif</td>
 		</tr>
 		<tr>
-			<td valign=middle>2- L'outillage est il conforme et appropri&eacute; &agrave; l'intervention ?</td>
-			<td align="center" valign=middle>@if($report->yn_outil) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_outil) <i class="fas fa-check"></i> @endif</td>
+			<td valign=middle>2- L'outillage est-il conforme et appropri&eacute; &agrave; l'intervention ?</td>
+			<td align="center" valign=middle>@if($report->yn_outil) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_outil) &#10004; @endif</td>
 			<td valign=middle>7- S'agit il d'un espace confin&eacute; ?</td>
-			<td align="center" valign=middle>@if($report->yn_confined) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_confined)<i class="fas fa-check"></i> @endif</td>
+			<td align="center" valign=middle>@if($report->yn_confined) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_confined)&#10004; @endif</td>
 		</tr>
 		<tr>
-			<td valign=middle>3- Le plan de pr&eacute;vention est absent alors qu'il est necessaire ?</td>
-			<td align="center" valign=middle>@if($report->yn_plan) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_plan) <i class="fas fa-check"></i> @endif</td>
+			<td valign=middle>3- Le plan de pr&eacute;vention est absent alors qu'il est nécessaire ?</td>
+			<td align="center" valign=middle>@if($report->yn_plan) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_plan) &#10004; @endif</td>
 			<td valign=middle>8- L'intervenant est il isol&eacute; ?</td>
-			<td align="center" valign=middle>@if($report->yn_isolated) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_isolated) <i class="fas fa-check"></i> @endif</td>
+			<td align="center" valign=middle>@if($report->yn_isolated) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_isolated) &#10004; @endif</td>
 		</tr>
 		<tr>
-			<td valign=middle>4- L'acc&egrave;s est il dangereux ?</td>
-			<td align="center" valign=middle>@if($report->yn_danger) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_danger) <i class="fas fa-check"></i> @endif</td>
+			<td valign=middle>4- L'acc&egrave;s est-il dangereux ?</td>
+			<td align="center" valign=middle>@if($report->yn_danger) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_danger) &#10004; @endif</td>
 			<td valign=middle>9- L'enlevement des déchets n'est il pas g&eacute;rable ?</td>
-			<td align="center" valign=middle>@if($report->yn_waste) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_waste) <i class="fas fa-check"></i> @endif</td>
+			<td align="center" valign=middle>@if($report->yn_waste) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_waste) &#10004; @endif</td>
 		</tr>
 		<tr>
-			<td >5- Existe t'il un risque autour de l'unit&eacute; ?</td>
-			<td align="center" valign=middle>@if($report->yn_risk) <i class="fas fa-check"></i> @endif</td>
-			<td align="center" valign=middle>@if(!$report->yn_risk) <i class="fas fa-check"></i> @endif</td>
+			<td >5- Existe-t-il un risque autour de l'unit&eacute; ?</td>
+			<td align="center" valign=middle>@if($report->yn_risk) &#10004; @endif</td>
+			<td align="center" valign=middle>@if(!$report->yn_risk) &#10004; @endif</td>
 		</tr>
 	</table>	
 
 <table cellspacing="0" border="0">
 		<tr>
-			<td align="left" >COMMENTAIRE OBLIGATOIRE SI RÉPONSE AFFIRMATIVE :</td>
+			<td align="left" >COMMENTAIRE SI NECESSAIRE :</td>
 		</tr>
 		<tr>
 			<td align="left" >{{$report->comment_if_needed}}</td>
 		</tr>
 </table>		
 			
-	<h2 class="h2">CERTIFICAT DE CONTROLE D'ÉTANCHEITÉ DU CIRCUIT FRIGORIFIQUES</h2>		
+	<h2 class="h2">CERTIFICAT DE CONTROLE D'ÉTANCHEITÉ DU CIRCUIT FRIGORIFIQUE</h2>		
 	<table cellspacing="0" border="0" width="100%">
 		<tr>
-			<td>{{$report->is_leack}} <i class="fas fa-check"></i> Aucune fuite detectée</td>
+			<td>{{$report->is_leack}} &#10004; Aucune fuite detectée</td>
 			<td></td>
 			<td>N/S Détecteur : {{$report->detector}}</td>
 		</tr>
 		<tr>
 			<td>Nombre de fuites réparées</td>
-			<td></td>
+			<td><?php $compt = 0;
+				if($report->fcr1 == 1)	$compt++;
+				if($report->fcr2 == 1)	$compt++;
+				if($report->fcr3 == 1)	$compt++;
+				echo $compt;
+				?>
+			</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>Nombre de fuites nécessitant une nouvelle intervention</td>
-			<td></td>
+			<td><?php $compt = 0;
+				if($report->fcr1 == 2)	$compt++;
+				if($report->fcr2 == 2)	$compt++;
+				if($report->fcr3 == 2)	$compt++;
+				echo $compt;
+				?></td>
 			<td></td>
 		</tr>
 	</table>
 </div>
 
-<div class="page">
+<div class="page page-break">
 
 	<table class="cartouche" cellspacing="0" border="0" width="100%">
 		<tr>
@@ -244,7 +273,7 @@ h3{
 			<td>N&deg; : {{$report->number}}</td>
 		</tr>
 		<tr>
-			<td rowspan=2  valign=top>{{$cpy->name}}<br>{{$cpy->address}}</td>
+			<td rowspan=2  valign=top>{{$cpy->name}}<br><?php echo str_replace("<br/>", " ", $cpy->address); ?></td>
 		</tr>
 		<tr>
 			<td align="center" class="font-small">Attestation de capacité : {{$cpy->certificate}}</td>

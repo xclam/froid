@@ -36,6 +36,7 @@ input{
 }
 
 
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -128,6 +129,15 @@ h2{
 	color: #fff;
 }
 
+.navbar-light .navbar-nav > .nav-link,
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link:active {
+	color: #000;
+}
+
 .form-inline .form-control {
     border-radius: 0px;
 }
@@ -137,6 +147,28 @@ h2{
 	border:0px;
 }
 
+.field-card{
+	cursor:pointer;
+	box-shadow: 0px 0px 3px 0px #9E9E9E;
+}
+.field-card .card-header{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.field-card .card-header h5{
+	margin:0;
+}
+.field-card .card-body{
+	padding: .75rem 1.25rem;
+}
+	
 .navbar-brand img {
 	width: auto;
 }

@@ -1,7 +1,3 @@
-<input type="hidden" name="leak_detector" value="0" />
-<input type="checkbox" name="leak_detector" class="input-field" id="leak_detector" value="1" @if(isset($machine) && $machine->leak_detector) checked @endif/>
-<label for="leak_detector">Leak detector</label>
-
 <div class="input-field" data-onclick="addFluid">Ajouter un fluide</div>
 <table class="table" id="machine-fluid-table">
 	<thead>
@@ -17,7 +13,7 @@
 			@foreach( $machine->fluids as $k=>$fluid )
 				<tr><input type="hidden" name="fluid[{{$k}}][id]" value="{{$fluid->pivot->id}}" />
 					<td>
-						<select class="fluid-type" name="fluid[{{$k}}][fluid_id]">
+						<select class="fluid-type input-field" name="fluid[{{$k}}][fluid_id]">
 							@if( isset( $fluids ) )
 								@foreach( $fluids as $f )
 									<option value="{{$f->id}}" @if($f->id==$fluid->id) selected @endif>{{$f->name}}</option>
@@ -25,7 +21,7 @@
 							@endif
 						</select>
 					</td>
-					<td><input type="text" name="fluid[{{$k}}][load]" class="fluid-load" value="{{$fluid->pivot->load}}"/></td></tr>
+					<td><input type="text" name="fluid[{{$k}}][load]" class="fluid-load input-field" value="{{$fluid->pivot->load}}"/></td></tr>
 				</tr>
 			@endforeach	
 		@endif
