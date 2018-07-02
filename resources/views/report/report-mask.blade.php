@@ -19,7 +19,7 @@
 
 	<ul class="nav nav-tabs" id="customer-nav-tab" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">Générale</a>
+			<a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">{{__('Service delivery')}}</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" id="fluid-tab" data-toggle="tab" href="#fluid" role="tab" aria-controls="fluid" aria-selected="false">Fluide</a>
